@@ -1,0 +1,171 @@
+@import url('https://fonts.googleapis.com/css2?family=Kdam+Thmor+Pro&display=swap');
+
+:root {
+  --main-bg-color: rgb(239, 236, 236);
+  --main-text-color: rgb(126, 126, 126);
+  --main-hand-color: rgb(15, 255, 35);
+  --main-clock-center: rgb(234, 207, 4);
+  --main-clock-shortmarks: rgb(97, 175, 255);
+  --main-clock-longmark: rgb(234, 130, 130);
+}
+
+[clock-theme="dark"] { 
+  --main-bg-color : rgb(40, 40, 40);
+  --main-text-color: rgb(204, 204, 204);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-size: 2.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  background-color: var(--main-bg-color);
+}
+
+.title {
+  color: var(--main-text-color);
+  font-family: 'Kdam Thmor Pro', sans-serif;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  padding: 2rem ;
+  transition: all ease 0.3s;
+}
+
+.clock {
+  width: 20rem;
+  height: 20rem;
+  border: 20px solid var(--main-bg-color);
+  border-radius: 50%;
+  position: relative;
+  padding: 2rem;
+  border: 10px solid var(--main-bg-color);
+  box-shadow: 0 -15px 15px rgba(255, 255, 255, 0.1),
+        inset 0 -15px 15px rgba(255, 255, 255, 0.1), 
+              0 15px 15px rgba(0, 0, 0, 0.5),
+        inset 0 15px 15px rgba(0, 0, 0, 0.5);
+  transition: all ease 0.3s;
+}
+
+/* outer clock */
+.outer-clock {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+}
+
+.outer-clock::after {
+  transform: rotate(90deg);
+}
+
+.outer-clock::before,
+.outer-clock::after,
+.outer-clock .mark{
+  content: '';
+  position: absolute;
+  width: 6px;
+  height: 100%;
+  background: var(--main-hand-color);
+  z-index: 0;
+  left: 49%; 
+} 
+
+.outer-clock .mark {
+  background: var(--main-text-color);
+  width: 2px;
+}
+
+.outer-clock .mark.mark-one {
+  transform: rotate(30deg);
+}
+
+.outer-clock .mark.mark-two {
+  transform: rotate(60deg);
+}
+
+.outer-clock .mark.mark-three {
+  transform: rotate(120deg);
+}
+
+.outer-clock .mark.mark-four {
+  transform: rotate(150deg);
+}
+
+/* inner clock */
+.inner-clock {
+  position: absolute;
+  top: 17.5%;
+  left: 17.5%;
+  width: 65%;
+  height: 65%;
+  background: var(--main-bg-color);
+  border-radius: 100%;
+  z-index: 1;
+}
+
+.inner-clock::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  border-radius: 18px;
+  margin:-6px 0 0 -8px;
+  left: 50%;
+  width: 16px;
+  height: 16px;
+  background: var(--main-clock-center);
+  z-index: 20;
+}
+
+/* clock hand */
+.hand {
+  width: 50%;
+  right: 50%;
+  height: 6px;
+  background: var(--main-clock-shortmarks);
+  position: absolute;
+  top: 50%;
+  border-radius: 10px;
+  transform-origin: 100%;
+  transform: rotate(90deg);
+}
+
+.hand.hour-hand {
+  width: 30%;
+  z-index: 3;
+}
+
+.hand.min-hand {
+  height: 3px;
+  z-index: 10;
+  width: 40%;
+}
+
+.hand.second-hand {
+  background: var(--main-clock-longmark);
+  width: 45%;
+  height: 2px;
+}
+
+/* theme switch */
+.switch-cont {
+  padding: 3rem 0;
+}
+
+.switch-cont .switch-btn {
+font-family: monospace;
+text-transform: uppercase;
+padding: 0.5rem 3rem;
+background-color: var(--main-bg-color);
+color: var(--main-text-color);
+border: 1px solid var(--main-text-color);
+border-radius: 0.25rem;
+cursor: pointer;
+transition: all ease 0.3s;
+}
