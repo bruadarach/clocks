@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title></title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="style.css" rel="stylesheet">
+    </head>
+    <body>
+        <div class="wrapper">
+            <div class="form">
+                <div class="title">
+                    TEAM
+                </div>
+                <form method="post" action="successpage.html" onsubmit="return validation();">
+                    <div class="input_wrap">
+                        <label for="input_text">이름</label>
+                        <div class="input_field">
+                            <input type="text" class="input" id="input_text">
+                        </div>
+                    </div>
+                    <div class="input_wrap">
+                        <label for="input_password">코드</label>
+                        <div class="input_field">
+                            <input type="password" class="input" id="input_password">
+                        </div>
+                    </div>
+                    <div class="input_wrap">
+                        <span class="error_msg">아이디 또는 비밀번호가 잘못 입력되었습니다. <br> 다시 입력해주세요.</span>
+                        <input type="submit" id="login_btn" class="btn disabled" value="Login" disabled="true">
+                    </div>
+                </form>
+            </div>
+        </div>
+    <script src="script.js"></script>
+    </body>
+</html>
